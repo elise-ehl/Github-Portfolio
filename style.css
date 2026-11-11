@@ -1,0 +1,254 @@
+:root {
+  --paper: #f3f4f0;
+  --ink: #17231d;
+  --muted: #55625a;
+  --rule: #cbd0c6;
+  --yellow: #ebb60f;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --body: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.18em;
+}
+a:hover { background: var(--yellow); text-decoration-color: transparent; }
+a:focus-visible, .skip:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  background: var(--yellow);
+  padding: 0.4rem 0.8rem;
+  z-index: 10;
+}
+.skip:focus { left: 0.5rem; }
+
+/* Navigation */
+.top {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 0;
+}
+.top nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; }
+.top a {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.top a:hover { background: none; border-bottom-color: var(--yellow); }
+
+main, footer {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero */
+.hero { padding: clamp(2.5rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(4.2rem, 15vw, 10.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.role {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3.4vw, 2rem);
+  color: var(--muted);
+  margin: 0.9rem 0 clamp(2rem, 5vw, 3.5rem);
+}
+
+/* Title block, borrowed from the engineering drawing's own */
+.titleblock {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1.2fr 1.4fr;
+  margin: 0;
+  border: 2px solid var(--ink);
+}
+.titleblock > div {
+  padding: 0.8rem 1rem 0.95rem;
+  border-left: 2px solid var(--ink);
+}
+.titleblock > div:first-child { border-left: 0; }
+.titleblock dt {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.2;
+}
+.titleblock dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+.titleblock .avail { background: var(--yellow); }
+.titleblock .avail dt { color: var(--ink); }
+
+/* Sections */
+.block {
+  border-top: 2px solid var(--ink);
+  padding: 2.2rem 0 3.5rem;
+}
+h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.05;
+  margin: 0 0 1.4rem;
+}
+h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  margin: 2.6rem 0 0.8rem;
+}
+.meta {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin: -0.8rem 0 1.8rem;
+}
+
+.prose { max-width: 38rem; }
+.prose.wide { max-width: 44rem; }
+.prose p { margin: 0 0 1.1rem; }
+.prose h3:first-child { margin-top: 0; }
+.project > .prose { margin-bottom: 2rem; }
+
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+  gap: 3rem;
+  align-items: start;
+}
+.portrait { margin: 0; }
+.portrait img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+}
+
+/* Skills */
+.skills { border-collapse: collapse; width: 100%; max-width: 48rem; }
+.skills th, .skills td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.8rem 1.5rem 0.8rem 0;
+  border-top: 1px solid var(--rule);
+}
+.skills tr:last-child th, .skills tr:last-child td { border-bottom: 1px solid var(--rule); }
+.skills th {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  width: 10rem;
+  line-height: 1.5;
+}
+
+/* Projects */
+.project-grid { display: grid; gap: 2.5rem; align-items: start; }
+.project-grid.tall { grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); }
+.project-grid.pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr); margin-bottom: 2.5rem; }
+
+figure { margin: 0; }
+figure img { border: 2px solid var(--ink); width: 100%; }
+figcaption {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+figure a:hover { background: none; }
+.pair figure:last-child img { background: #fff; }
+
+/* Data tables */
+.table-wrap { overflow-x: auto; }
+.data { border-collapse: collapse; width: 100%; min-width: 40rem; font-size: 1rem; line-height: 1.5; }
+.data th, .data td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.75rem 1rem 0.75rem 0;
+  border-top: 1px solid var(--rule);
+}
+.data thead th {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.data tbody tr:last-child td { border-bottom: 1px solid var(--rule); }
+.data td:first-child { white-space: nowrap; }
+.data:not(.reflect) td:first-child { width: 4rem; }
+.reflect td:first-child { white-space: normal; }
+.reflect ul { margin: 0; padding-left: 1.1rem; }
+.reflect li { margin-bottom: 0.4rem; }
+
+.problems { max-width: 44rem; padding-left: 1.2rem; margin: 0; }
+.problems li { margin-bottom: 0.8rem; padding-left: 0.3rem; }
+.problems li::marker { color: var(--yellow); }
+
+/* Footer */
+footer {
+  border-top: 2px solid var(--ink);
+  padding: 2.2rem 1.5rem 4rem;
+}
+footer p { margin: 0 0 0.6rem; max-width: 38rem; }
+
+/* Small screens */
+@media (max-width: 860px) {
+  .titleblock { grid-template-columns: 1fr 1fr; }
+  .titleblock > div:nth-child(3) { border-left: 0; }
+  .titleblock > div:nth-child(n+3) { border-top: 2px solid var(--ink); }
+  .about-grid, .project-grid.tall, .project-grid.pair { grid-template-columns: minmax(0, 1fr); }
+  .about-grid .portrait { max-width: 20rem; }
+  .project-grid.tall figure { max-width: 18rem; }
+}
+@media (max-width: 520px) {
+  body { font-size: 1.05rem; }
+  .titleblock { grid-template-columns: 1fr; }
+  .titleblock > div { border-left: 0; }
+  .titleblock > div:nth-child(n+2) { border-top: 2px solid var(--ink); }
+  .skills th { width: 7.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

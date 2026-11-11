@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eng Hui Ling – Mechatronic Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Eng Hui Ling, MEng Mechatronic Engineering student at the University of Nottingham Malaysia. Robotics, Arduino control, CAD and machining projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <nav aria-label="Main">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#line-follower">Line follower</a>
+    <a href="#pit-stop">Pit-stop piston</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <h1>Eng Hui Ling</h1>
+    <p class="role">Mechatronic engineering portfolio</p>
+
+    <dl class="titleblock">
+      <div>
+        <dt>Programme</dt>
+        <dd>MEng (Hons) Mechatronic Engineering, University of Nottingham Malaysia</dd>
+      </div>
+      <div>
+        <dt>Interested in</dt>
+        <dd>Robotics and automation</dd>
+      </div>
+      <div class="avail">
+        <dt>Available for</dt>
+        <dd>Summer internship, June – August 2027</dd>
+      </div>
+      <div>
+        <dt>Contact</dt>
+        <dd><a href="mailto:eliseeng0912@gmail.com">eliseeng0912@gmail.com</a><br><a href="https://www.linkedin.com/in/eng-hui-ling/">LinkedIn</a></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="about" class="block about">
+    <h2>About me</h2>
+    <div class="about-grid">
+      <div class="prose">
+        <p>I’m a Mechatronics Engineering student at the University of Nottingham Malaysia, interested in robotics and automation. I’ve developed and debugged Arduino control software, including PID line following and multi-sensor integration, and machined a pneumatic piston from raw aluminium and steel stock.</p>
+        <p>I’m skilled in SolidWorks CAD and engineering drawings, and I’ve managed a charity event with more than 390 participants.</p>
+        <p><strong>Relevant modules:</strong> Power &amp; Energy, Information &amp; Systems, Statics &amp; Dynamics, Applied Mechatronic Construction Project, Engineering Design &amp; Design Project, Engineering Mathematics.</p>
+      </div>
+      <figure class="portrait">
+        <img src="images/flower.jpg" alt="Black-eyed Susan flowers in soft focus, with one in sharp focus in the centre" width="611" height="618">
+      </figure>
+    </div>
+  </section>
+
+  <section id="skills" class="block">
+    <h2>Skills</h2>
+    <table class="skills">
+      <tbody>
+        <tr><th scope="row">Hardware</th><td>Machining, circuit assembly, 3D printing, equipment operation (multimeter, oscilloscope)</td></tr>
+        <tr><th scope="row">Programming</th><td>Python, C++</td></tr>
+        <tr><th scope="row">Simulation</th><td>CAD (SolidWorks), MATLAB, LTspice, PLECS</td></tr>
+        <tr><th scope="row">Collaboration</th><td>MS Office, Canva, Google Workspace</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="line-follower" class="block project">
+    <h2>Arduino line follower</h2>
+    <p class="meta">2025 · EEEE1031, Applied Mechatronic Construction Project</p>
+
+    <div class="project-grid tall">
+      <div class="prose">
+        <p>The goal was to build an autonomous 4WD Arduino line-following vehicle. The project covered PID control theory, sensor implementation and adaptable navigation across a series of weekly challenges, using trial and error, critical thinking and applied knowledge.</p>
+        <p><strong>My role:</strong> software development and debugging with AI-assisted coding tools, PID testing and tuning, and project management.</p>
+        <p><strong>Assessment:</strong> weekly challenge performance, plus oral and written reports.</p>
+        <p><a href="https://github.com/lemonlimelise/Arduino-Line-Follower-Car">View the code on GitHub</a></p>
+      </div>
+      <figure>
+        <img src="images/line-follower.jpg" alt="The finished line follower car driving along a black line on a white track" width="589" height="1051">
+        <figcaption>Figure 1: Line follower car on track</figcaption>
+      </figure>
+    </div>
+
+    <h3>Weekly challenges</h3>
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr><th scope="col">Week</th><th scope="col">Challenge</th><th scope="col">Hardware</th><th scope="col">Result</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Drive straight for 10 s and show elapsed time on the LCD.</td>
+            <td>DC motors and L298N motor driver</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Follow a track with 90° turns and curves in under 60 s, and display total distance.</td>
+            <td>IR sensors to detect the track, encoders to measure distance</td>
+            <td>Total distance: 596 cm</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Track challenge: stop at 10 cm for 2 s, ascend a ramp, display the ramp angle on the LCD, pause for 4 s and rotate 360°. Other challenges: obstacle avoidance and Bluetooth control.</td>
+            <td>MPU6050 for orientation on the ramp, HC-SR04 for obstacle avoidance, HC-05 for Bluetooth control</td>
+            <td>Completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Problems and how I solved them</h3>
+    <ul class="problems">
+      <li><strong>Pin management.</strong> The motor driver and LCD shield competed for the same pins, so I re-planned the pin layout several times.</li>
+      <li><strong>Track environment.</strong> Sun glare, and a test track that differed slightly from the real one, confused the IR sensors. I debugged the code repeatedly until the car worked under those conditions.</li>
+      <li><strong>Overshooting curves.</strong> The car kept overshooting curves, which I fixed by tuning the PID values carefully.</li>
+    </ul>
+  </section>
+
+  <section id="pit-stop" class="block project">
+    <h2>Pit-stop challenge: pneumatic piston</h2>
+    <p class="meta">2026 · MMME1035, Engineering Design and Design Project</p>
+
+    <div class="prose wide">
+      <p>The Pit-Stop Challenge asks teams to build machines that place a 50 mm foam block on a 75 × 75 mm area on a remote-controlled vehicle. It is based on Formula One pit stops. The project ran over a semester and included machining.</p>
+    </div>
+
+    <div class="project-grid pair">
+      <figure>
+        <img src="images/piston.jpg" alt="Machined aluminium pneumatic piston with a V-shaped attachment, mounted on a test rig" width="1000" height="1333">
+        <figcaption>Figure 2: Fabricated piston on test rig</figcaption>
+      </figure>
+      <figure>
+        <a href="images/piston-cad.png"><img src="images/piston-cad.png" alt="SolidWorks engineering drawing of the piston assembly on the test rig, with exploded view, top view and parts list" width="1268" height="836"></a>
+        <figcaption>Figure 3: CAD e-drawing of the piston assembly (click to enlarge)</figcaption>
+      </figure>
+    </div>
+
+    <div class="prose">
+      <h3>Challenge requirements</h3>
+      <p>The pit stop runs in order. The vehicle enters the designated area, and Group 1 places a pit board in front of it to show where to stop. Group 2 then places the foam block on the vehicle, and Group 3 helps Group 2 extract their device. As Group 3, our job was to design and fabricate a piston that holds the foam block down while Group 2 retracts their piston.</p>
+
+      <h3>Design specifications</h3>
+      <p>A V-shaped attachment on the piston proved stable for holding the foam block down. I determined the piston size and stroke by calculation, based on the distance from the test rig to the foam block’s position on the vehicle.</p>
+
+      <h3>Manufacturing and machining</h3>
+      <p>I machined the pneumatic piston components: front end cap, piston body, tie rods, piston attachment, piston blank and others. The operations included marking and scribing, cutting, drilling on a pillar drill, and threading with a die. Materials were aluminium and bright drawn mild steel.</p>
+    </div>
+
+    <h3>Reflection</h3>
+    <div class="table-wrap">
+      <table class="data reflect">
+        <thead>
+          <tr><th scope="col">Problems encountered</th><th scope="col">What I learned</th><th scope="col">How I would improve</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <ul>
+                <li>Air leakage during the test trial</li>
+                <li>Tight deadline and limited machining hours</li>
+                <li>A missing team member</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Communication and teamwork with other members</li>
+                <li>Working under time constraints</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Write clearer process sheets</li>
+                <li>Use better-fitting O-rings</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <h2>Get in touch</h2>
+  <p>I’m looking for a summer internship, June – August 2027.</p>
+  <p><a href="mailto:eliseeng0912@gmail.com">eliseeng0912@gmail.com</a> · <a href="https://www.linkedin.com/in/eng-hui-ling/">LinkedIn</a> · <a href="https://github.com/lemonlimelise">GitHub</a></p>
+</footer>
+
+</body>
+</html>
